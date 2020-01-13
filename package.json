@@ -1,0 +1,23 @@
+{
+    "name": "qubix",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "preferGlobal": true,
+    "bin": {
+        "qubix": "bin/qubix.js"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "commander": "^4.1.0",
+        "esm": "^3.2.25",
+        "execa": "^4.0.0",
+        "react-app-rewired": "^2.1.5",
+        "webpack-require-from": "^1.8.0"
+    }
+}
