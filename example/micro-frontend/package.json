@@ -5,7 +5,8 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "start:mf": "qubix start --port 5000"
+        "start:mf": "qubix start --port 5000",
+        "build:mf": "qubix build"
     },
     "browserslist": {
         "production": [
