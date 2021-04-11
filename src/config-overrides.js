@@ -1,5 +1,4 @@
 var path = require('path');
-var fs = require('fs');
 const WebpackRequireFrom = require('webpack-require-from');
 
 module.exports = {
@@ -22,18 +21,14 @@ module.exports = {
         }
 
         const entryPath = path.resolve(process.cwd(), 'micro-build');
-
         const overirdedConfigs = {
             ...config,
-            entry: './src/App.jsx',
+            entry: './start/Starter.js',
             output: {
                 ...config.output,
                 path: entryPath,
-                filename: 'mf-bundle.js',
+                filename: 'main.js',
                 chunkFilename: '[name].[contenthash:8].chunk.js',
-                /* library: 'MF1',
-                libraryTarget: 'umd',
-                umdNamedDefine: true */
             },
             externals: {
                 'react': 'react',
@@ -46,14 +41,23 @@ module.exports = {
                     variableName: 'MICROFRONT_END_BASE_URL_MF1'
                 }),
             ].filter(validPlugins),
-            optimization: undefined,
-            /* optimization: {
+            optimization: {
                 ...config.optimization,
                 runtimeChunk: false,
-            }, */
+                splitChunks: {
+                    chunks: 'all',
+                    cacheGroups: {
+                        commons: {
+                            test: /[\\/]node_modules[\\/]/,
+                            name: 'vendors',
+                            chunks: 'async',
+                        },
+                    },
+                },
+            },
         };
 
-        console.log(config);
+        console.log(overirdedConfigs);
 
         return overirdedConfigs;
     },

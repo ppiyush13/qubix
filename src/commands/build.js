@@ -1,8 +1,9 @@
+import injectModule from '../injectModule'
 
-/* export default () => {
-    console.log('build done');
-} */
+export default async ({input, output}) => {
+    injectModule({
+        input, output,
+    });
 
-module.exports = () => {
-    console.log('build done');
-}
+    require('react-app-rewired/scripts/build');
+};

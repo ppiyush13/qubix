@@ -1,10 +1,6 @@
-/* import program from 'commander';
+import program from 'commander';
 import pkg from '../package.json';
-import { build, start } from './commands'; */
-
-const program = require('commander');
-const pkg = require('../package.json');
-const {build, start} = require('./commands');
+import { build, start } from '../src/commands';
 
 program
     .version(pkg.version, '-v, --version', 'qubix version')
@@ -17,6 +13,8 @@ program
 program
     .command('build')
     .description('create production build assets')
+    .requiredOption('-i, --input <inputFile>', 'Specify entry file for build', './src/App')
+    .requiredOption('-o, --output <dir>', 'Specify output dir', './mf-build')
     .action(build)
     .on('--help', function () {
         console.log('');
@@ -28,20 +26,17 @@ program
 program
     .command('start')
     .description('start development server. Type `qubix start --help` more additional info.')
-    .option('-p, --port', 'port number to start server')
+    .requiredOption('-i, --input <file>', 'Specify entry file', './src/App')
+    .option('-p, --port <port_no>', 'port number to start server')
     .action(start)
     .on('--help', function () {
         console.log('');
         console.log('Examples:');
         console.log('');
         console.log('  $ qubix start');
-        console.log('  $ qubix start --p 13130');
+        console.log('  $ qubix start -p 13130 -i ./src/App.jsx -o ./mf-build');
     });
 
-/* export function createCli(argv) {
-    program.parse(process.argv);
-} */
-
-exports.createCli = (argv) => {
+export function createCli(argv) {
     program.parse(process.argv);
 }

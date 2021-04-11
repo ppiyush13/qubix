@@ -1,23 +1,37 @@
 {
     "name": "qubix",
     "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "preferGlobal": true,
+    "description": "Tool to generate Micro-Frontends with create-react-app",
+    "license": "0BSD",
+    "author": {
+        "name": "Piyush Lodaya",
+        "email": "ppiyush13@gmail.com"
+    },
+    "main": "dist/qubix.js",
+    "module": "dist/qubix.esm.js",
+    "source": "src/browser/index.js",
     "bin": {
         "qubix": "bin/qubix.js"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "microbundle build --no-compress"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
     "dependencies": {
-        "commander": "^4.1.0",
+        "@sindresorhus/slugify": "^1.1.0",
+        "commander": "^7.2.0",
+        "dynamic-entry-webpack-plugin": "^2.0.2",
         "esm": "^3.2.25",
-        "execa": "^4.0.0",
-        "react-app-rewired": "^2.1.5",
-        "webpack-require-from": "^1.8.0"
+        "microbundle": "^0.13.0",
+        "mock-require": "^3.0.3",
+        "react-app-rewired": "^2.1.8",
+        "relative": "^3.0.2",
+        "tapable": "^2.2.0",
+        "upath": "^2.0.1",
+        "webpack-require-from": "^1.8.2"
+    },
+    "peerDependencies": {
+        "react": ">=16.8.0",
+        "react-scripts": ">=3.3.0",
+        "styled-components": "^4.4.1"
     }
 }

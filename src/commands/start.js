@@ -1,10 +1,14 @@
-const path = require('path');
-const mock = require('mock-require');
- 
-const overridePath = path.resolve(process.cwd(), 'config-overrides');
-mock(overridePath, require('../config-overrides'));
+import injectModule from '../injectModule'
 
-module.exports = async () => {
-    console.log('done');
-    require('react-app-rewired/scripts/build');
+export default async ({input, port}) => {
+    const output = './mf-build';
+    injectModule({
+        input, output,
+    });
+
+    if(port) {
+        process.env.PORT = port;
+    }
+
+    require('react-app-rewired/scripts/start');
 };
