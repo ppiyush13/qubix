@@ -1,45 +1,43 @@
 {
-    "name": "micro-frontend",
-    "version": "1.0.0",
-    "private": true,
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "start:mf": "qubix start --port 5000",
-        "build:mf": "qubix build"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
-        ]
-    },
-    "dependencies": {
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "react-scripts": "4.0.3",
-        "react-styled-flex": "^2.0.0-rc.1",
-        "styled-components": "^5.2.3"
-    },
-    "devDependencies": {
-        "@types/jest": "^26.0.22",
-        "@types/node": "^14.14.37",
-        "@types/react": "^17.0.3",
-        "@types/react-dom": "^17.0.3",
-        "@types/styled-components": "^5.1.9",
-        "qubix": "workspace:1.0.0",
-        "typescript": "^4.2.4"
-    }
+  "name": "micro-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "qubix start --port 5000",
+    "build": "qubix build"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "react-styled-flex": "^2.0.0-rc.1",
+    "styled-components": "^5.2.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.22",
+    "@types/node": "^14.14.37",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/styled-components": "^5.1.9",
+    "qubix": "workspace:1.0.0",
+    "typescript": "^4.2.4"
+  }
 }

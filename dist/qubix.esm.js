@@ -2,21 +2,22 @@ import * as React from 'react';
 import * as Styled from 'styled-components';
 import slugify$1 from '@sindresorhus/slugify';
 
-window['react'] = React;
-window['styled-components'] = Styled;
+window.qubix = {};
+window.qubix["react"] = React;
+window.qubix["styled-components"] = Styled;
 
 var slugify = (function (pkgName) {
-  var prefixPkgName = 'MF ' + pkgName + ' base url';
+  var prefixPkgName = "MF " + pkgName + " base url";
   var slug = slugify$1(prefixPkgName, {
-    separator: '_',
-    customReplacements: [['@font-face', '']]
+    separator: "_",
+    customReplacements: [["@font-face", ""]]
   });
   return slug.toUpperCase();
 });
 
 var loadJs = (function (mfBaseUrl) {
   try {
-    return Promise.resolve(fetch(mfBaseUrl + 'main.js')).then(function (response) {
+    return Promise.resolve(fetch(mfBaseUrl + "main.js")).then(function (response) {
       return Promise.resolve(response.text()).then(function (content) {
         var js = parseJs(content);
         return js["default"]();
@@ -28,7 +29,7 @@ var loadJs = (function (mfBaseUrl) {
 });
 
 var parseJs = function parseJs(content) {
-  return new Function('return ' + content).call();
+  return new Function("return " + content).call();
 };
 
 var index = {
@@ -37,7 +38,8 @@ var index = {
     Object.entries(mfMap).forEach(function (_ref) {
       var key = _ref[0],
           value = _ref[1];
-      window[slugify(key)] = value;
+      console.log(slugify(key));
+      window.qubix[slugify(key)] = value;
     });
   },
   resolve: function resolve(mf) {

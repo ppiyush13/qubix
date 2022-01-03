@@ -1,5 +1,6 @@
 import * as React from "react";
-import * as Styled from 'styled-components';
+import * as Styled from "styled-components";
 
-window['react'] = React;
-window['styled-components'] = Styled;
+window.qubix = {};
+window.qubix["react"] = React;
+window.qubix["styled-components"] = Styled;

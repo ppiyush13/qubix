@@ -1,20 +1,21 @@
-import './load-externals';
-import slugify from '../slugify';
-import loadJs from './load-js';
+import "./load-externals";
+import slugify from "../slugify";
+import loadJs from "./load-js";
 
 export default {
-    register: function(mfMap) {
-        this.mfMap = mfMap;
-        Object.entries(mfMap).forEach(([key, value]) => {
-            window[slugify(key)] = value;
-        });
-    },
+  register: function (mfMap) {
+    this.mfMap = mfMap;
+    Object.entries(mfMap).forEach(([key, value]) => {
+      console.log(slugify(key));
+      window.qubix[slugify(key)] = value;
+    });
+  },
 
-    resolve: function(mf) {
-        return this.mfMap[mf];
-    },
+  resolve: function (mf) {
+    return this.mfMap[mf];
+  },
 
-    load: function(mf) {
-        return loadJs(this.mfMap[mf]);
-    }
+  load: function (mf) {
+    return loadJs(this.mfMap[mf]);
+  },
 };
