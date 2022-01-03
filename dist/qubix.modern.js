@@ -28,7 +28,6 @@ var index = {
   register: function (mfMap) {
     this.mfMap = mfMap;
     Object.entries(mfMap).forEach(([key, value]) => {
-      console.log(slugify(key));
       window.qubix[slugify(key)] = value;
     });
   },

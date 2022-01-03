@@ -65,7 +65,6 @@
       Object.entries(mfMap).forEach(function (_ref) {
         var key = _ref[0],
             value = _ref[1];
-        console.log(slugify(key));
         window.qubix[slugify(key)] = value;
       });
     },
